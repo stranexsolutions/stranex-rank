@@ -3,237 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stranex Rank | Own the First Page. Own Your Market.</title>
+<title>Stranex Rank — Own the First Page</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --gold: #f5c518;
-    --gold-dim: rgba(245,197,24,0.12);
-    --gold-border: rgba(245,197,24,0.25);
-    --bg: #0a0a0a;
-    --card: #111111;
-    --card2: #161616;
-    --border: #222222;
-    --text: #ffffff;
-    --muted: #888888;
-    --muted2: #555555;
-    --green: #22c55e;
-    --red: #ef4444;
-    --yellow: #eab308;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#f5c518;
+  --gold-dim:rgba(245,197,24,0.1);
+  --gold-border:rgba(245,197,24,0.2);
+  --bg:#0a0a0a;
+  --card:#111;
+  --card2:#161616;
+  --border:#1e1e1e;
+  --text:#fff;
+  --muted:#777;
+  --muted2:#444;
+  --green:#22c55e;
+  --red:#ef4444;
+  --yellow:#eab308;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;background:rgba(10,10,10,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.nav-brand{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-links{display:none}
+@media(min-width:768px){
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  nav{padding:0 40px}
+}
+.btn-nav{background:var(--gold);color:#000;border:none;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn-primary{display:inline-block;background:var(--gold);color:#000;border:none;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:opacity .2s}
+.btn-primary:hover{opacity:.9}
+.btn-secondary{display:inline-block;background:none;color:var(--text);border:1px solid var(--border);padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;text-decoration:none;transition:border-color .2s}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+.btn-outline{background:none;border:1px solid var(--border);color:var(--muted);padding:10px 20px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;transition:all .2s}
+.btn-outline:hover{border-color:var(--gold);color:var(--text)}
+.badge{display:inline-block;background:var(--gold-dim);border:1px solid var(--gold-border);color:var(--gold);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:20px}
+section{padding:80px 20px;max-width:1080px;margin:0 auto}
+@media(min-width:768px){section{padding:100px 40px}}
+.divider{height:1px;background:var(--border);max-width:1080px;margin:0 auto}
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-brand { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; }
-  .nav-links { display: flex; align-items: center; gap: 32px; }
-  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--text); }
-  .nav-cta { display: flex; gap: 12px; align-items: center; }
-  .btn-ghost { background: none; border: 1px solid var(--border); color: var(--muted); padding: 8px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--text); }
-  .btn-gold { background: var(--gold); color: #000; padding: 8px 18px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s; font-family: inherit; }
-  .btn-gold:hover { background: #ffd700; transform: translateY(-1px); }
-  .btn-gold-lg { background: var(--gold); color: #000; padding: 14px 28px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; border: none; transition: all 0.2s; font-family: inherit; display: inline-block; text-decoration: none; }
-  .btn-gold-lg:hover { background: #ffd700; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,197,24,0.35); }
-  .btn-outline-lg { background: none; color: var(--text); padding: 14px 28px; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); transition: all 0.2s; font-family: inherit; display: inline-block; text-decoration: none; }
-  .btn-outline-lg:hover { border-color: var(--gold); color: var(--gold); }
+.hero{padding-top:120px;padding-bottom:60px;text-align:center}
+@media(min-width:768px){.hero{padding-top:140px}}
+.hero h1{font-size:clamp(36px,8vw,68px);font-weight:900;line-height:1.05;margin-bottom:20px;letter-spacing:-1px;background:linear-gradient(135deg,#fff 30%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:clamp(15px,3vw,18px);color:var(--muted);max-width:500px;margin:0 auto 32px;line-height:1.7}
+.hero-btns{display:flex;flex-direction:column;gap:12px;align-items:center;margin-bottom:48px}
+@media(min-width:480px){.hero-btns{flex-direction:row;justify-content:center}}
+.trust{font-size:13px;color:var(--muted2)}
+.trust strong{color:var(--muted);font-weight:600}
 
-  .badge { display: inline-block; background: var(--gold-dim); border: 1px solid var(--gold-border); color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 24px; }
+/* RANK TABLE MOCKUP */
+.rank-mockup{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;max-width:680px;margin:48px auto 0}
+.rank-bar{background:var(--card2);padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+.rank-dots{display:flex;gap:5px}
+.rank-dots span{width:9px;height:9px;border-radius:50%;background:var(--border)}
+.rank-dots .active{background:var(--gold)}
+.rank-url{flex:1;background:var(--border);border-radius:4px;padding:3px 10px;font-size:11px;color:var(--muted);text-align:center;margin:0 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-table{width:100%;border-collapse:collapse}
+.rank-table thead th{padding:10px 16px;text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2);border-bottom:1px solid var(--border)}
+.rank-table tbody tr{border-bottom:1px solid var(--border);animation:fadeRow .4s ease forwards;opacity:0}
+.rank-table tbody tr:nth-child(1){animation-delay:.05s}
+.rank-table tbody tr:nth-child(2){animation-delay:.1s}
+.rank-table tbody tr:nth-child(3){animation-delay:.15s}
+.rank-table tbody tr:nth-child(4){animation-delay:.2s}
+.rank-table tbody tr:nth-child(5){animation-delay:.25s}
+.rank-table tbody tr:last-child{border-bottom:none}
+@keyframes fadeRow{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:translateX(0)}}
+.rank-table td{padding:12px 16px;font-size:13px}
+.kw{color:var(--text);font-weight:500;font-size:13px}
+.pos{font-size:18px;font-weight:800}
+.up{color:var(--green);font-size:12px;font-weight:600}
+.dn{color:var(--red);font-size:12px;font-weight:600}
+.fl{color:var(--muted);font-size:12px}
+.vol{color:var(--muted);font-size:12px}
 
-  /* HERO */
-  .hero { padding: 140px 24px 80px; text-align: center; max-width: 1100px; margin: 0 auto; }
-  .hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.05; margin-bottom: 24px; background: linear-gradient(135deg, #ffffff 0%, #f5c518 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .hero p { font-size: 18px; color: var(--muted); max-width: 560px; margin: 0 auto 36px; }
-  .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
-  .trust-bar { color: var(--muted); font-size: 13px; margin-bottom: 60px; }
-  .trust-bar span { color: var(--gold); font-weight: 600; }
+/* STATS */
+.section-center{text-align:center}
+.section-center h2{font-size:clamp(26px,5vw,44px);font-weight:800;margin-bottom:14px;letter-spacing:-0.5px}
+.section-center>p{font-size:16px;color:var(--muted);max-width:460px;margin:0 auto 48px}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:640px){.stats-grid{grid-template-columns:repeat(4,1fr)}}
+.big-stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px 16px;text-align:center}
+.big-stat .num{font-size:clamp(28px,6vw,40px);font-weight:900;color:var(--gold);margin-bottom:6px}
+.big-stat .desc{font-size:12px;color:var(--muted);line-height:1.5}
 
-  /* RANK TABLE MOCKUP */
-  .rank-mockup { max-width: 740px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-  .rank-mockup-header { background: var(--card2); padding: 12px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
-  .dots { display: flex; gap: 6px; }
-  .dots span { width: 10px; height: 10px; border-radius: 50%; }
-  .dot-r { background: #ff5f57; }
-  .dot-y { background: #febc2e; }
-  .dot-g { background: #28c840; }
-  .rank-url { flex: 1; background: var(--border); border-radius: 6px; padding: 4px 12px; font-size: 12px; color: var(--muted); text-align: center; margin: 0 12px; }
-  .rank-table { width: 100%; border-collapse: collapse; }
-  .rank-table thead th { padding: 12px 20px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
-  .rank-table tbody tr { border-bottom: 1px solid var(--border); animation: slideIn 0.4s ease forwards; opacity: 0; }
-  .rank-table tbody tr:nth-child(1) { animation-delay: 0.1s; }
-  .rank-table tbody tr:nth-child(2) { animation-delay: 0.2s; }
-  .rank-table tbody tr:nth-child(3) { animation-delay: 0.3s; }
-  .rank-table tbody tr:nth-child(4) { animation-delay: 0.4s; }
-  .rank-table tbody tr:nth-child(5) { animation-delay: 0.5s; }
-  .rank-table tbody tr:nth-child(6) { animation-delay: 0.6s; }
-  @keyframes slideIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
-  .rank-table tbody tr:last-child { border-bottom: none; }
-  .rank-table td { padding: 14px 20px; font-size: 14px; }
-  .keyword-cell { color: var(--text); font-weight: 500; }
-  .pos-cell { font-size: 20px; font-weight: 800; color: var(--text); }
-  .change-up { color: var(--green); font-size: 13px; font-weight: 600; }
-  .change-down { color: var(--red); font-size: 13px; font-weight: 600; }
-  .change-flat { color: var(--muted); font-size: 13px; }
-  .vol-cell { color: var(--muted); font-size: 13px; }
+/* AUDIT CARD */
+.audit-card{max-width:480px;margin:0 auto;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.audit-head{background:var(--card2);padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.audit-lbl{font-size:12px;color:var(--muted);font-weight:500}
+.score-wrap{display:flex;align-items:baseline;gap:4px}
+.score-num{font-size:32px;font-weight:900;color:var(--yellow)}
+.score-max{font-size:14px;color:var(--muted)}
+.audit-url-bar{font-size:11px;color:var(--muted);padding:8px 18px;border-bottom:1px solid var(--border);background:var(--card2)}
+.audit-issues{padding:14px;display:flex;flex-direction:column;gap:8px}
+.issue{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:8px;font-size:13px}
+.issue.crit{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.18)}
+.issue.warn{background:rgba(234,179,8,.07);border:1px solid rgba(234,179,8,.18)}
+.issue.good{background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.18)}
+.issue-ic{flex-shrink:0;width:16px;height:16px;margin-top:1px}
+.crit .issue-ic{color:#ef4444}
+.warn .issue-ic{color:#eab308}
+.good .issue-ic{color:#22c55e}
 
-  /* SECTIONS */
-  .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
-  .section-center { text-align: center; }
-  .section h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 800; margin-bottom: 16px; }
-  .section > p, .section-center > p { color: var(--muted); font-size: 17px; max-width: 520px; margin: 0 auto 60px; }
-  .divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
+/* SCAN INPUT */
+.scan-row{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:28px}
+@media(min-width:480px){.scan-row{flex-direction:row;justify-content:center}}
+.scan-input{background:var(--card);border:1px solid var(--border);color:var(--text);padding:13px 18px;border-radius:8px;font-size:14px;font-family:inherit;outline:none;transition:border-color .2s;width:100%;max-width:260px}
+.scan-input:focus{border-color:var(--gold)}
+.scan-msg{margin-top:14px;font-size:13px;color:var(--muted);display:none;text-align:center}
 
-  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
-  .stat-big { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; text-align: center; }
-  .stat-big .num { font-size: 42px; font-weight: 900; color: var(--gold); margin-bottom: 8px; }
-  .stat-big .desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
+/* STEPS */
+.steps{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:640px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:26px 20px;text-align:left}
+.step-num{width:34px;height:34px;background:var(--gold-dim);border:1px solid var(--gold-border);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--gold);margin-bottom:14px}
+.step h3{font-size:15px;font-weight:700;margin-bottom:6px}
+.step p{font-size:13px;color:var(--muted);line-height:1.6}
 
-  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
-  .step { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 32px 24px; text-align: center; }
-  .step-num { width: 44px; height: 44px; background: var(--gold-dim); border: 2px solid var(--gold-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: var(--gold); margin: 0 auto 20px; }
-  .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
-  .step p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:1fr;gap:14px;max-width:900px;margin:0 auto}
+@media(min-width:640px){.pricing-grid{grid-template-columns:repeat(3,1fr)}}
+.price-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 20px;position:relative}
+.price-card.popular{border-color:var(--gold)}
+.pop-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--gold);color:#000;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:3px 12px;border-radius:20px;white-space:nowrap}
+.price-tier{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.price-amt{font-size:40px;font-weight:900;line-height:1;margin-bottom:4px}
+.price-amt sup{font-size:16px;font-weight:700;color:var(--muted);vertical-align:top;margin-top:5px}
+.price-amt sub{font-size:13px;font-weight:400;color:var(--muted)}
+.price-sub{font-size:12px;color:var(--muted);margin-bottom:18px}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:22px}
+.price-features li{font-size:13px;color:var(--muted);display:flex;gap:8px}
+.price-features li::before{content:'—';color:var(--gold);flex-shrink:0;font-weight:700}
+.price-features li.off{color:var(--muted2)}
+.price-features li.off::before{color:var(--muted2)}
+.price-card .btn-primary,.price-card .btn-outline{width:100%;text-align:center;padding:11px}
 
-  /* AUDIT CARD */
-  .audit-card { max-width: 520px; margin: 0 auto; background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-  .audit-card-header { background: var(--card2); padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-  .audit-score { font-size: 13px; font-weight: 600; color: var(--muted); }
-  .score-circle { display: flex; align-items: center; gap: 10px; }
-  .score-num { font-size: 28px; font-weight: 900; color: var(--yellow); }
-  .score-max { font-size: 14px; color: var(--muted); }
-  .audit-url { font-size: 12px; color: var(--muted); padding: 10px 20px; border-bottom: 1px solid var(--border); background: var(--card2); }
-  .audit-issues { padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-  .issue-row { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border-radius: 8px; font-size: 14px; }
-  .issue-row.critical { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); }
-  .issue-row.medium { background: rgba(234,179,8,0.08); border: 1px solid rgba(234,179,8,0.2); }
-  .issue-row.good { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); }
-  .issue-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-  .issue-text { color: var(--text); }
+/* FAQ */
+.faq-section{max-width:680px}
+.faq-section h2{font-size:clamp(26px,5vw,40px);font-weight:800;margin-bottom:32px;text-align:center;letter-spacing:-0.5px}
+.faq-item{border:1px solid var(--border);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:16px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;background:var(--card);gap:12px;-webkit-tap-highlight-color:transparent}
+.faq-icon{color:var(--gold);font-size:18px;flex-shrink:0;transition:transform .3s;line-height:1}
+.faq-a{padding:0 18px;max-height:0;overflow:hidden;transition:all .3s ease;font-size:13px;color:var(--muted);line-height:1.7}
+.faq-item.open .faq-a{max-height:300px;padding:12px 18px 16px}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
 
-  /* PRICING */
-  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 960px; margin: 0 auto; }
-  .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 36px 28px; text-align: left; position: relative; }
-  .price-card.popular { border-color: var(--gold); background: linear-gradient(145deg, #161610, #111111); }
-  .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; white-space: nowrap; }
-  .price-name { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-  .price-amount { font-size: 48px; font-weight: 900; color: var(--text); line-height: 1; }
-  .price-amount sup { font-size: 22px; font-weight: 700; color: var(--muted); vertical-align: top; margin-top: 8px; }
-  .price-amount sub { font-size: 16px; font-weight: 400; color: var(--muted); }
-  .price-desc { font-size: 13px; color: var(--muted); margin: 8px 0 24px; }
-  .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
-  .price-features li { display: flex; gap: 10px; font-size: 14px; color: var(--muted); }
-  .price-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
-  .price-features li.off { color: var(--muted2); }
-  .price-features li.off::before { content: '–'; color: var(--muted2); }
-  .price-card .btn-gold, .price-card .btn-ghost { width: 100%; text-align: center; padding: 12px; font-size: 15px; border-radius: 10px; }
-
-  .faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; overflow: hidden; max-width: 720px; margin-left: auto; margin-right: auto; }
-  .faq-q { padding: 20px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 15px; font-weight: 600; background: var(--card); }
-  .faq-q:hover { background: var(--card2); }
-  .faq-icon { color: var(--gold); font-size: 20px; transition: transform 0.3s; }
-  .faq-a { padding: 0 24px; max-height: 0; overflow: hidden; transition: all 0.3s ease; font-size: 14px; color: var(--muted); line-height: 1.7; }
-  .faq-item.open .faq-a { max-height: 200px; padding: 16px 24px 20px; }
-  .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-  .cta-footer { text-align: center; padding: 100px 24px; border-top: 1px solid var(--border); background: linear-gradient(to bottom, transparent, rgba(245,197,24,0.03)); }
-  .cta-footer h2 { font-size: clamp(28px, 5vw, 56px); font-weight: 900; margin-bottom: 20px; background: linear-gradient(135deg, #ffffff, #f5c518); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .cta-footer p { color: var(--muted); font-size: 17px; max-width: 480px; margin: 0 auto 40px; }
-  .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .note { font-size: 13px; color: var(--muted2); margin-top: 20px; }
-
-  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 48px 24px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto auto; gap: 40px; }
-  .footer-brand { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
-  .footer-sub { font-size: 13px; color: var(--muted); }
-  .footer-col h4 { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-  .footer-col a { display: block; color: var(--muted); text-decoration: none; font-size: 14px; margin-bottom: 10px; }
-  .footer-col a:hover { color: var(--text); }
-  .footer-bottom { border-top: 1px solid var(--border); padding: 20px 24px; text-align: center; font-size: 13px; color: var(--muted2); max-width: 1100px; margin: 0 auto; }
+.cta-section{text-align:center;padding:80px 20px;border-top:1px solid var(--border)}
+.cta-section h2{font-size:clamp(28px,6vw,52px);font-weight:900;margin-bottom:16px;letter-spacing:-1px;background:linear-gradient(135deg,#fff,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-section p{font-size:16px;color:var(--muted);max-width:420px;margin:0 auto 32px;line-height:1.7}
+.cta-btns{display:flex;flex-direction:column;gap:12px;align-items:center}
+@media(min-width:480px){.cta-btns{flex-direction:row;justify-content:center}}
+.cta-note{font-size:12px;color:var(--muted2);margin-top:14px}
+.footer{padding:36px 20px;border-top:1px solid var(--border);max-width:1080px;margin:0 auto}
+@media(min-width:768px){.footer{padding:36px 40px;display:grid;grid-template-columns:1fr auto auto;gap:40px}}
+.footer-brand{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:6px}
+.footer-sub{font-size:12px;color:var(--muted);margin-bottom:24px}
+@media(min-width:768px){.footer-sub{margin-bottom:0}}
+.footer-col{margin-bottom:20px}
+@media(min-width:768px){.footer-col{margin-bottom:0}}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);margin-bottom:10px}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:13px;margin-bottom:8px;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{border-top:1px solid var(--border);padding:14px 20px;text-align:center;font-size:12px;color:var(--muted2)}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-brand">Stranex Rank</div>
-  <div class="nav-links">
-    <a href="#how-it-works">Product</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
-  </div>
-  <div class="nav-cta">
-    <button class="btn-ghost">Sign In</button>
-    <button class="btn-gold">Get Started</button>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#how-it-works">Product</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <button class="btn-nav">Get Started</button>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="badge">STRANEX RANK</div>
-  <h1>Own the first page.<br>Own your market.</h1>
-  <p>Weekly rank tracking and SEO audits for local businesses. Know exactly where you stand — and exactly how to climb.</p>
+<section class="hero" style="max-width:1080px">
+  <div class="badge">Stranex Rank</div>
+  <h1>Own the first page. Own your market.</h1>
+  <p>Weekly rank tracking and SEO audits for local businesses. Know exactly where you stand and exactly how to climb.</p>
   <div class="hero-btns">
-    <a href="#pricing" class="btn-gold-lg">See Your Rankings Free</a>
-    <a href="#audit" class="btn-outline-lg">Get a Free Audit</a>
+    <a href="#pricing" class="btn-primary">See Your Rankings Free</a>
+    <a href="#audit" class="btn-secondary">Get a Free Audit</a>
   </div>
-  <div class="trust-bar">
-    <span>3,200+</span> keywords tracked every week &nbsp;·&nbsp; Trusted by <span>180+</span> local businesses
-  </div>
+  <div class="trust"><strong>3,200+</strong> keywords tracked weekly &nbsp;&middot;&nbsp; Trusted by <strong>180+</strong> local businesses</div>
 
-  <!-- Rank Table Mockup -->
   <div class="rank-mockup">
-    <div class="rank-mockup-header">
-      <div class="dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
-      <div class="rank-url">rank.stranexsolutions.com — 704 Pressure Washing</div>
+    <div class="rank-bar">
+      <div class="rank-dots"><span></span><span></span><span class="active"></span></div>
+      <div class="rank-url">rank.stranexsolutions.com &mdash; 704 Pressure Washing</div>
     </div>
     <table class="rank-table">
-      <thead>
-        <tr>
-          <th>KEYWORD</th>
-          <th>POSITION</th>
-          <th>CHANGE</th>
-          <th>VOLUME</th>
-        </tr>
-      </thead>
-      <tbody id="rank-tbody">
-        <tr>
-          <td class="keyword-cell">pressure washing charlotte</td>
-          <td class="pos-cell">#3</td>
-          <td class="change-up">↑ +2</td>
-          <td class="vol-cell">880/mo</td>
-        </tr>
-        <tr>
-          <td class="keyword-cell">best pressure washer near me</td>
-          <td class="pos-cell">#7</td>
-          <td class="change-up">↑ +5</td>
-          <td class="vol-cell">1,200/mo</td>
-        </tr>
-        <tr>
-          <td class="keyword-cell">driveway cleaning charlotte nc</td>
-          <td class="pos-cell">#4</td>
-          <td class="change-up">↑ +1</td>
-          <td class="vol-cell">320/mo</td>
-        </tr>
-        <tr>
-          <td class="keyword-cell">commercial pressure washing</td>
-          <td class="pos-cell">#12</td>
-          <td class="change-down">↓ -1</td>
-          <td class="vol-cell">590/mo</td>
-        </tr>
-        <tr>
-          <td class="keyword-cell">roof soft wash charlotte</td>
-          <td class="pos-cell">#2</td>
-          <td class="change-up">↑ +3</td>
-          <td class="vol-cell">260/mo</td>
-        </tr>
-        <tr>
-          <td class="keyword-cell">power washing near me</td>
-          <td class="pos-cell">#9</td>
-          <td class="change-flat">→ flat</td>
-          <td class="vol-cell">2,400/mo</td>
-        </tr>
+      <thead><tr>
+        <th>Keyword</th>
+        <th>Position</th>
+        <th>Change</th>
+        <th>Volume</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="kw">pressure washing charlotte</td><td class="pos">#3</td><td class="up">+2</td><td class="vol">880/mo</td></tr>
+        <tr><td class="kw">best pressure washer near me</td><td class="pos">#7</td><td class="up">+5</td><td class="vol">1,200/mo</td></tr>
+        <tr><td class="kw">driveway cleaning charlotte nc</td><td class="pos">#4</td><td class="up">+1</td><td class="vol">320/mo</td></tr>
+        <tr><td class="kw">commercial pressure washing</td><td class="pos">#12</td><td class="dn">-1</td><td class="vol">590/mo</td></tr>
+        <tr><td class="kw">roof soft wash charlotte</td><td class="pos">#2</td><td class="up">+3</td><td class="vol">260/mo</td></tr>
       </tbody>
     </table>
   </div>
@@ -241,179 +221,187 @@
 
 <div class="divider"></div>
 
-<!-- PROBLEM -->
-<section class="section section-center">
-  <div class="badge">THE PROBLEM</div>
+<section class="section-center">
+  <div class="badge">The Problem</div>
   <h2>You're invisible online.</h2>
-  <p>While you're on the job, your competitors are ranking above you and stealing your customers.</p>
+  <p>While you're on the job, competitors are ranking above you and taking your customers.</p>
   <div class="stats-grid">
-    <div class="stat-big"><div class="num">93%</div><div class="desc">of local searches never go past the first page of Google</div></div>
-    <div class="stat-big"><div class="num">3×</div><div class="desc">more clicks for position #1 vs position #5 for the same keyword</div></div>
-    <div class="stat-big"><div class="num">30%</div><div class="desc">more clicks for every single position you move up in Google</div></div>
-    <div class="stat-big"><div class="num">78%</div><div class="desc">of local mobile searches lead to an offline purchase within 24 hours</div></div>
+    <div class="big-stat"><div class="num">93%</div><div class="desc">of local searches never leave page one</div></div>
+    <div class="big-stat"><div class="num">3x</div><div class="desc">more clicks at position 1 vs position 5</div></div>
+    <div class="big-stat"><div class="num">30%</div><div class="desc">more clicks for every position you move up</div></div>
+    <div class="big-stat"><div class="num">78%</div><div class="desc">of local mobile searches lead to a purchase in 24h</div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- AUDIT -->
-<section class="section section-center" id="audit">
-  <div class="badge">FREE SEO AUDIT</div>
+<section class="section-center" id="audit">
+  <div class="badge">Free SEO Audit</div>
   <h2>See what's holding you back.</h2>
-  <p>We scan your website and tell you exactly what's broken — and how to fix it.</p>
+  <p>We scan your website and tell you exactly what's broken and how to fix it.</p>
 
   <div class="audit-card">
-    <div class="audit-card-header">
-      <div class="audit-score">Site SEO Score</div>
-      <div class="score-circle">
+    <div class="audit-head">
+      <div class="audit-lbl">Site SEO Score</div>
+      <div class="score-wrap">
         <div class="score-num">62</div>
         <div class="score-max">/ 100</div>
       </div>
     </div>
-    <div class="audit-url">https://704pressurewashing.com — scanned today</div>
+    <div class="audit-url-bar">https://704pressurewashing.com &mdash; scanned today</div>
     <div class="audit-issues">
-      <div class="issue-row critical"><span class="issue-icon">❌</span><span class="issue-text">No mobile viewport meta tag — losing mobile traffic</span></div>
-      <div class="issue-row critical"><span class="issue-icon">❌</span><span class="issue-text">Page loads in 8.2s — Google penalizes slow sites</span></div>
-      <div class="issue-row critical"><span class="issue-icon">❌</span><span class="issue-text">Missing Google Business Profile — not appearing on Maps</span></div>
-      <div class="issue-row medium"><span class="issue-icon">⚠️</span><span class="issue-text">No meta descriptions on 4 pages</span></div>
-      <div class="issue-row medium"><span class="issue-icon">⚠️</span><span class="issue-text">Images missing alt text — missing image SEO signals</span></div>
-      <div class="issue-row good"><span class="issue-icon">✅</span><span class="issue-text">HTTPS enabled — secure connection</span></div>
-      <div class="issue-row good"><span class="issue-icon">✅</span><span class="issue-text">Mobile-responsive design detected</span></div>
+      <div class="issue crit">
+        <svg class="issue-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="7"/><line x1="8" y1="5" x2="8" y2="8"/><line x1="8" y1="11" x2="8" y2="11"/></svg>
+        No mobile viewport meta tag
+      </div>
+      <div class="issue crit">
+        <svg class="issue-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="7"/><line x1="8" y1="5" x2="8" y2="8"/><line x1="8" y1="11" x2="8" y2="11"/></svg>
+        Page loads in 8.2s — Google penalizes slow sites
+      </div>
+      <div class="issue crit">
+        <svg class="issue-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="7"/><line x1="8" y1="5" x2="8" y2="8"/><line x1="8" y1="11" x2="8" y2="11"/></svg>
+        Missing Google Business Profile
+      </div>
+      <div class="issue warn">
+        <svg class="issue-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2L14 13H2L8 2z"/><line x1="8" y1="7" x2="8" y2="10"/><line x1="8" y1="12" x2="8" y2="12"/></svg>
+        No meta descriptions on 4 pages
+      </div>
+      <div class="issue good">
+        <svg class="issue-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="7"/><polyline points="5,8 7,10 11,6"/></svg>
+        HTTPS enabled
+      </div>
+      <div class="issue good">
+        <svg class="issue-ic" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="7"/><polyline points="5,8 7,10 11,6"/></svg>
+        Mobile-responsive design detected
+      </div>
     </div>
   </div>
 
-  <div style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-    <input type="text" placeholder="yourbusiness.com" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 20px;border-radius:10px;font-size:15px;font-family:inherit;width:280px;outline:none;" onfocus="this.style.borderColor='#f5c518'" onblur="this.style.borderColor='#222'" />
-    <button class="btn-gold-lg" onclick="runAudit(this)">Get My Free Audit</button>
+  <div class="scan-row">
+    <input class="scan-input" type="text" placeholder="yourbusiness.com" id="scan-url">
+    <button class="btn-primary" onclick="runScan(this)">Get My Free Audit</button>
   </div>
-  <div id="audit-result" style="margin-top:20px;font-size:14px;color:var(--muted);display:none;">
-    ✅ Scan queued! Check back in 2-3 minutes for your full report.
-  </div>
+  <div class="scan-msg" id="scan-msg">Scan queued. Results ready in 2-3 minutes.</div>
 </section>
 
 <div class="divider"></div>
 
-<!-- HOW IT WORKS -->
-<section class="section section-center" id="how-it-works">
-  <div class="badge">HOW IT WORKS</div>
+<section class="section-center" id="how-it-works">
+  <div class="badge">How It Works</div>
   <h2>Three steps to page one.</h2>
-  <p>We track your rankings weekly and tell you exactly what to fix.</p>
+  <p>We track your rankings every week and tell you exactly what to fix.</p>
   <div class="steps">
     <div class="step">
       <div class="step-num">01</div>
       <h3>Add Keywords</h3>
-      <p>Tell us what you want to rank for. "plumber Charlotte", "best HVAC near me" — whatever your customers search.</p>
+      <p>Tell us what you want to rank for. We track your position on Google every Monday.</p>
     </div>
     <div class="step">
       <div class="step-num">02</div>
       <h3>Weekly Scan</h3>
-      <p>Every Monday, we check your position on Google for every keyword. We track your competitors too.</p>
+      <p>Every Monday we check your position for every keyword and compare to last week.</p>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <h3>Get Your Report</h3>
-      <p>PDF report lands in your inbox with your rankings, wins, drops, and the top 3 things to fix this week.</p>
+      <p>PDF report in your inbox with rankings, wins, drops, and the top 3 things to fix.</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PRICING -->
-<section class="section section-center" id="pricing">
-  <div class="badge">PRICING</div>
+<section class="section-center" id="pricing">
+  <div class="badge">Pricing</div>
   <h2>Simple pricing.</h2>
   <p>No contracts. No setup fees. Cancel anytime.</p>
   <div class="pricing-grid">
     <div class="price-card">
-      <div class="price-name">Local</div>
-      <div class="price-amount"><sup>$</sup>39<sub>/mo</sub></div>
-      <div class="price-desc">10 keywords tracked weekly</div>
+      <div class="price-tier">Local</div>
+      <div class="price-amt"><sup>$</sup>39<sub>/mo</sub></div>
+      <div class="price-sub">10 keywords tracked weekly</div>
       <ul class="price-features">
         <li>10 keywords</li>
-        <li>1 business location</li>
+        <li>1 location</li>
         <li>Weekly rank report</li>
         <li>Basic SEO audit</li>
         <li>Email reports</li>
         <li class="off">Competitor tracking</li>
         <li class="off">PDF reports</li>
       </ul>
-      <button class="btn-ghost">Get Started</button>
+      <button class="btn-outline">Get Started</button>
     </div>
     <div class="price-card popular">
-      <div class="popular-badge">MOST POPULAR</div>
-      <div class="price-name">Pro</div>
-      <div class="price-amount"><sup>$</sup>99<sub>/mo</sub></div>
-      <div class="price-desc">50 keywords across 3 locations</div>
+      <div class="pop-badge">Most Popular</div>
+      <div class="price-tier">Pro</div>
+      <div class="price-amt"><sup>$</sup>99<sub>/mo</sub></div>
+      <div class="price-sub">50 keywords, 3 locations</div>
       <ul class="price-features">
         <li>50 keywords</li>
         <li>3 locations</li>
         <li>Weekly rank reports</li>
         <li>Full SEO audit</li>
-        <li>Competitor tracking (3)</li>
+        <li>Competitor tracking</li>
         <li>PDF reports</li>
         <li>Priority support</li>
       </ul>
-      <button class="btn-gold">Get Started</button>
+      <a href="#" class="btn-primary">Get Started</a>
     </div>
     <div class="price-card">
-      <div class="price-name">Agency</div>
-      <div class="price-amount"><sup>$</sup>249<sub>/mo</sub></div>
-      <div class="price-desc">Unlimited keywords + white-label</div>
+      <div class="price-tier">Agency</div>
+      <div class="price-amt"><sup>$</sup>249<sub>/mo</sub></div>
+      <div class="price-sub">Unlimited + white-label</div>
       <ul class="price-features">
         <li>Unlimited keywords</li>
         <li>Unlimited locations</li>
         <li>White-label reports</li>
         <li>API access</li>
-        <li>Competitor tracking (10)</li>
         <li>Client portal</li>
         <li>Dedicated support</li>
+        <li>Custom integrations</li>
       </ul>
-      <button class="btn-ghost">Get Started</button>
+      <button class="btn-outline">Get Started</button>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- FAQ -->
-<section class="section" id="faq" style="max-width:720px;margin:0 auto;">
-  <h2 style="text-align:center;font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:40px;">Common questions</h2>
+<section class="faq-section" style="margin:0 auto" id="faq">
+  <h2>Common Questions</h2>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">How accurate are the rankings?<span class="faq-icon">+</span></div>
-    <div class="faq-a">We check rankings from Charlotte, NC (or your target city) using the same method Google uses for local searches. Results may vary slightly from what you see personally due to personalization, but our data is consistent and reliable for tracking trends.</div>
+    <div class="faq-a">We check rankings from your target city using the same method Google uses for local searches. Results may vary slightly from personalized results, but our data is consistent for tracking trends over time.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">How long until I see results?<span class="faq-icon">+</span></div>
-    <div class="faq-a">SEO takes time, but you'll start seeing your current rankings immediately. Most clients see meaningful movement in 60-90 days when following our weekly action items. The audit alone typically identifies quick wins that move rankings in 2-4 weeks.</div>
+    <div class="faq-a">You see your current rankings immediately. Most clients see meaningful movement in 60-90 days when following our weekly action items. Quick wins from the audit typically move rankings in 2-4 weeks.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">Do you fix my SEO or just report on it?<span class="faq-icon">+</span></div>
-    <div class="faq-a">Stranex Rank is primarily a tracking and reporting tool. However, Stranex Solutions offers full SEO implementation as part of the complete website package. We'll tell you exactly what to fix — and we can fix it for you.</div>
+    <div class="faq-a">Stranex Rank is a tracking and reporting tool. Stranex Solutions offers full SEO implementation as part of the complete website package. We'll tell you exactly what to fix — and we can fix it for you.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">Can I track my competitors?<span class="faq-icon">+</span></div>
-    <div class="faq-a">Yes — on Pro and Agency plans, we track your competitors' rankings for the same keywords. You'll see who's outranking you, by how much, and what they're doing differently.</div>
+    <div class="faq-a">Yes — on Pro and Agency plans we track your competitors' rankings for the same keywords. You'll see who's outranking you, by how much, and what they're doing differently.</div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<div class="cta-footer">
-  <div class="badge">READY TO RANK?</div>
-  <h2>Stop guessing.<br>Start climbing.</h2>
-  <p>Get your free SEO audit today. See exactly where you stand and what to fix.</p>
+<div class="cta-section">
+  <div class="badge">Ready to Rank</div>
+  <h2>Stop guessing. Start climbing.</h2>
+  <p>Get your free audit today. See exactly where you stand and what to fix.</p>
   <div class="cta-btns">
-    <a href="#pricing" class="btn-gold-lg">Start Tracking Rankings Free</a>
-    <a href="https://stranexsolutions.com" class="btn-outline-lg">Learn About Stranex</a>
+    <a href="#pricing" class="btn-primary">Start Tracking Free</a>
+    <a href="https://stranexsolutions.com" class="btn-secondary">Learn About Stranex</a>
   </div>
-  <p class="note">Free audit · No credit card needed · Cancel anytime</p>
+  <p class="cta-note">Free audit &nbsp;&middot;&nbsp; No credit card &nbsp;&middot;&nbsp; Cancel anytime</p>
 </div>
 
-<footer>
+<div class="footer">
   <div>
     <div class="footer-brand">Stranex Rank</div>
-    <div class="footer-sub">Local SEO rank tracking for service businesses.<br>A product by Stranex Solutions.</div>
+    <div class="footer-sub">Local SEO tracking for service businesses.<br>A product by Stranex Solutions.</div>
   </div>
   <div class="footer-col">
     <h4>Product</h4>
@@ -425,21 +413,21 @@
     <h4>Stranex</h4>
     <a href="https://stranexsolutions.com">Home</a>
     <a href="https://connect.stranexsolutions.com">Stranex Calling</a>
-    <a href="mailto:ospain@stranexsolutions.com">ospain@stranexsolutions.com</a>
+    <a href="mailto:ospain@stranexsolutions.com">Contact</a>
   </div>
-</footer>
-<div class="footer-bottom">© 2026 Stranex Solutions · Built in Charlotte, NC</div>
+</div>
+<div class="footer-bottom">&#169; 2026 Stranex Solutions &nbsp;&middot;&nbsp; Charlotte, NC</div>
 
 <script>
-function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
-function runAudit(btn) {
-  btn.textContent = 'Scanning...';
-  btn.disabled = true;
-  setTimeout(() => {
-    document.getElementById('audit-result').style.display = 'block';
-    btn.textContent = 'Get My Free Audit';
-    btn.disabled = false;
-  }, 1500);
+function toggleFaq(el){el.parentElement.classList.toggle('open')}
+function runScan(btn){
+  const url=document.getElementById('scan-url').value.trim();
+  if(!url){alert('Enter a website URL first');return}
+  btn.textContent='Scanning...';btn.disabled=true;
+  setTimeout(()=>{
+    document.getElementById('scan-msg').style.display='block';
+    btn.textContent='Get My Free Audit';btn.disabled=false;
+  },1200);
 }
 </script>
 </body>
